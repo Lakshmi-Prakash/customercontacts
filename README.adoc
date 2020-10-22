@@ -1,5 +1,6 @@
 == About
-This application allows you to do the following operations through rest interfaces
+This application allows you to do the following operations through rest interfaces:
+
 * Retrieve phone numbers for a customer by passing customer id
 * Retrieve all phone numbers in the repository
 * Activate a phone number
