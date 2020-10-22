@@ -102,6 +102,7 @@ Response Status
 * Run mvn clean install from the project root directory and this would create a customercontacts-1.0-SNAPSHOT.jar in target folder.
 * Once build is successful run java -jar target/customercontacts-1.0-SNAPSHOT.jar
 * For getting all phone numbers run curl -X GET http://localhost:8080/phoneNumbers
+* For getting all phone numbers for customer run curl -X GET http://localhost:8080/customer/1231/phoneNumbers
 * For activating phone number run curl -H "Content-Type: application/json" -X POST -d @request.json http://localhost:8080/phoneNumbers/activate, change phone number by updating request.json
 
 
