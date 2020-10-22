@@ -1,0 +1,108 @@
+== About
+This application allows you to do the following operations through rest interfaces
+* Retrieve phone numbers for a customer by passing customer id
+* Retrieve all phone numbers in the repository
+* Activate a phone number
+
+
+== Interface specification
+=== Operation getPhoneNumbersByCustomerId
+
+Request url  - http://localhost:8080/customer/{id}/phoneNumbers
+The customer id is part of the request url eg: http://localhost:8080/customer/1231/phoneNumbers
+
+HTTP method - GET
+
+Response Status
+ * 200 - success
+ * 400 - for invalid request parameter
+ * 500 - for any other errors encountered.
+
+Response type - JSON
+
+Response
+----
+{
+	"customerId": 1231,
+	"phoneNumbers": ["+61424321333", "+61424321334", "+61424321365"]
+}
+
+----
+
+=== Operation getPhoneNumbers
+
+Request url  - http://localhost:8080/phoneNumbers
+
+No request parameters required
+
+
+HTTP method - GET
+
+Response Status
+ * 200 - success
+ * 500 - for any other errors encountered.
+
+Response type - JSON
+
+Response
+----
+[{
+	"phoneNumber": "+61424321501",
+	"active": true
+}, {
+	"phoneNumber": "+61424321401",
+	"active": true
+}, {
+	"phoneNumber": "+61424321500",
+	"active": false
+}, {
+	"phoneNumber": "+61424321334",
+	"active": false
+}, {
+	"phoneNumber": "+61424321400",
+	"active": false
+}, {
+	"phoneNumber": "+61424321333",
+	"active": false
+}, {
+	"phoneNumber": "+61424321365",
+	"active": true
+}]
+
+----
+
+
+=== Operation activatePhoneNumber
+
+Request url  - http://localhost:8080/phoneNumbers/activate
+
+
+HTTP method - POST
+
+Request Type JSON
+
+Request
+
+-----
+{
+  "phoneNumber": "+61424321500"
+  
+}
+-----
+
+Response Status
+ * 200 - success
+ * 500 - for any other errors encountered.
+ 
+
+
+== How to test
+
+
+* Run mvn clean install from the project root directory and this would create a customercontacts-1.0-SNAPSHOT.jar in target folder.
+* Once build is successful run java -jar target/customercontacts-1.0-SNAPSHOT.jar
+* For getting all phone numbers run curl -X GET http://localhost:8080/phoneNumbers
+* For activating phone number run curl -H "Content-Type: application/json" -X POST -d @request.json http://localhost:8080/phoneNumbers/activate, change phone number by updating request.json
+
+
+
