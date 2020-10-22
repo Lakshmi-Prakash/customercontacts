@@ -14,7 +14,7 @@ The customer id is part of the request url eg: http://localhost:8080/customer/12
 
 HTTP method - GET
 
-Response Status
+Response Status :
  * 200 - success
  * 400 - for invalid request parameter
  * 500 - for any other errors encountered.
@@ -39,7 +39,7 @@ No request parameters required
 
 HTTP method - GET
 
-Response Status
+Response Status :
  * 200 - success
  * 500 - for any other errors encountered.
 
@@ -91,7 +91,7 @@ Request
 }
 -----
 
-Response Status
+Response Status :
  * 200 - success
  * 500 - for any other errors encountered.
  
